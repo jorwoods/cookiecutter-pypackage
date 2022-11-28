@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 import os
+from pathlib import Path
 
-PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
+PROJECT_DIRECTORY = Path.cwd().resolve().absolute()
 
 
 def remove_file(filepath):
-    os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
+    (PROJECT_DIRECTORY / filepath).unlink()
 
 
 if __name__ == '__main__':
@@ -20,3 +21,6 @@ if __name__ == '__main__':
 
     if 'Not open source' == '{{ cookiecutter.open_source_license }}':
         remove_file('LICENSE')
+
+    if "{{ cookiecutter.package_manager }}" != "pip":
+        remove_file("requirements_dev.txt")
