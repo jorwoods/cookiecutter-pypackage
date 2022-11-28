@@ -60,9 +60,15 @@ dev = [
 
 [build-system]
 requires = [
+    {%- if cookiecutter.package_manager == "poetry" %}
+    "poetry-core",
+    {% else %}
     "setuptools>=42",
     "wheel",
-    "versioneer[toml]"
+    {%- endif %}
+    {%- if cookiecutter.use_versioneer == "y" %}
+    "versioneer[toml]",
+    {%- endif %}
 ]
 build-backend = "setuptools.build_meta"
 
