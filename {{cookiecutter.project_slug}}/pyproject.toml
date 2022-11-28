@@ -1,3 +1,12 @@
+{%- set license_classifiers = {
+    'MIT license': 'License :: OSI Approved :: MIT License',
+    'BSD license': 'License :: OSI Approved :: BSD License',
+    'ISC license': 'License :: OSI Approved :: ISC License (ISCL)',
+    'Apache Software License 2.0': 'License :: OSI Approved :: Apache Software License',
+    'GNU General Public License v3': 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
+} -%}
+
+
 [project]
 name = "{{ cookiecutter.project_slug }}"
 url = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
@@ -9,7 +18,7 @@ version = "{{ cookiecutter.version }}"
 {%- endif %}
 
 {%- if cookiecutter.open_source_license in license_classifiers %}
-    license= {text = "{{ cookiecutter.open_source_license }}"},
+license= {text = "{{ cookiecutter.open_source_license }}"},
 {%- endif %}
 
 dynamic = [
@@ -22,13 +31,6 @@ description = "{{ cookiecutter.project_short_description }}"
 
 
 
-{%- set license_classifiers = {
-    'MIT license': 'License :: OSI Approved :: MIT License',
-    'BSD license': 'License :: OSI Approved :: BSD License',
-    'ISC license': 'License :: OSI Approved :: ISC License (ISCL)',
-    'Apache Software License 2.0': 'License :: OSI Approved :: Apache Software License',
-    'GNU General Public License v3': 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
-} %}
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
