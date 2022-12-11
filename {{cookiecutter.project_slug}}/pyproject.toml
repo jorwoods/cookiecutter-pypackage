@@ -22,7 +22,7 @@ license= {text = "{{ cookiecutter.open_source_license }}"},
 {%- endif %}
 
 dynamic = [
-{%- if cookiecutter.use_versioneer == "y" %}
+{%- if cookiecutter.version_manager == "versioneer" %}
     "version",
 {%- endif %}
     "readme"
@@ -66,7 +66,7 @@ requires = [
     "setuptools>=42",
     "wheel",
     {%- endif %}
-    {%- if cookiecutter.use_versioneer == "y" %}
+    {%- if cookiecutter.version_manager == "versioneer" %}
     "versioneer[toml]",
     {%- endif %}
 ]
@@ -87,7 +87,7 @@ extend-exclude = """
 # A regex preceded with ^/ will apply only to files and directories
 # in the root of the project.
 (
-{%- if cookiecutter.use_versioneer == "y" %}
+{%- if cookiecutter.version_manager == "versioneer" %}
     ^/versioneer.py
     |
     ^src/{{ cookiecutter.project_slug }}/_version.py
@@ -95,7 +95,7 @@ extend-exclude = """
 )
 """
 
-{% if cookiecutter.use_versioneer == "y" %}
+{% if cookiecutter.version_manager == "versioneer" %}
 [tool.versioneer]
 VCS = "git"
 style = "pep440"
@@ -103,7 +103,12 @@ versionfile_source = "src/{{ cookiecutter.project_slug }}/_version.py"
 versionfile_build = "{{ cookiecutter.project_slug }}/_version.py"
 tag_prefix = "v"
 parentdir_prefix = "{{ cookiecutter.project_slug }}-"
+{% elif cookiecutter.version_manager == "autopub" -%}
+[tool.autopub]
+git-username = {{ cookiecutter.github_username }}
+git-email = {{ cookiecutter.email }}
 {%- endif %}
+
 
 {% if cookiecutter.use_pytest %}
 [tool.pytest.ini_options]
