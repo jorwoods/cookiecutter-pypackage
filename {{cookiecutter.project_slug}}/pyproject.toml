@@ -49,7 +49,7 @@ dev = [
     "pytest",
     {%- endif %}
     {%- if cookiecutter.use_black == 'y' %}
-    "black"
+    "black",
     {%- endif %}
 ]
 
