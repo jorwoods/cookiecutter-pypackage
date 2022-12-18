@@ -19,7 +19,7 @@ github_username
 
 project_name
     The name of your new Python package project. This is used in documentation, so spaces and any characters are fine here.
-    
+
 project_slug
     The namespace of your Python package. This should be Python import-friendly. Typically, it is the slugified version of project_name. Note: your PyPi project and Travis links will use project_slug, so change those in the README afterwards.
 
@@ -40,6 +40,14 @@ The following package configuration options set up different features for your p
 use_pytest
     Whether to use `pytest <https://docs.pytest.org/en/latest/>`_
 
+use_black
+    Whether to use the black formatter `Black <https://github.com/psf/black/>`_.
+
+version_manager
+    What version manager, if any to use to auto-increment version numbers.
+    1. `Autopub <https://github.com/autopub/autopub>_`
+    2. `Versioneer <https://github.com/python-versioneer/python-versioneer>_`
+
 use_pypi_deployment_with_travis
     Whether to use PyPI deployment with `Travis <https://travis-ci.org/>`_.
 
@@ -47,10 +55,10 @@ add_pyup_badge
     Whether to include a `pyup <https://github.com/pyupio/pyup>`_ badge
 
 command_line_interface
-    Whether to create a console script using Click. Console script entry point will match the project_slug. Options: ['Click', 'Argparse', 'No command-line interface']
-    
+    Whether to create a console script using Argparse or Click. Console script entry point will match the project_slug. Options: ['Argparse', 'No command-line interface', 'Click']
+
 create_author_file
     Whether to create an authors file
-    
+
 open_source_license
     Choose a `license <https://choosealicense.com/>`_. Options: [1. MIT License, 2. BSD license, 3. ISC license, 4. Apache Software License 2.0, 5. GNU General Public License v3, 6. Not open source]
