@@ -13,7 +13,7 @@ url = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pro
 authors = [
     {name="{{ cookiecutter.full_name.replace('\"', '\\\"') }}", email="{{ cookiecutter.email }}"}
 ]
-{%- if cookiecutter.use_versioneer != "y" %}
+{%- if cookiecutter.version_manager != "versioneer" %}
 version = "{{ cookiecutter.version }}"
 {%- endif %}
 
