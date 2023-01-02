@@ -9,7 +9,7 @@
   "version": "0.1.0",
   "use_pytest": "y",
   "use_black": "y",
-  "version_manager": ["autopub", "versioneer", "manual"],
+  "version_manager": ["autopub", "setuptools_scm", "versioneer", "manual"],
   "package_manager": ["poetry", "pip", "pipenv"],
   "use_pypi_deployment_with_travis": "n",
   "add_pyup_badge": "n",
