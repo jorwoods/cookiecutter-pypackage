@@ -13,16 +13,16 @@ url = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.pro
 authors = [
     {name="{{ cookiecutter.full_name.replace('\"', '\\\"') }}", email="{{ cookiecutter.email }}"}
 ]
-{%- if cookiecutter.version_manager != "versioneer" %}
+{%- if cookiecutter.version_manager not in ["versioneer", "setuptools_scm"] %}
 version = "{{ cookiecutter.version }}"
 {%- endif %}
 
 {%- if cookiecutter.open_source_license in license_classifiers %}
-license= {text = "{{ cookiecutter.open_source_license }}"},
+license = {text = "{{ cookiecutter.open_source_license }}"}
 {%- endif %}
 
 dynamic = [
-{%- if cookiecutter.version_manager == "versioneer" %}
+{%- if cookiecutter.version_manager in ["versioneer", "setuptools_scm"] %}
     "version",
 {%- endif %}
     "readme"
@@ -69,6 +69,9 @@ requires = [
     {%- if cookiecutter.version_manager == "versioneer" %}
     "versioneer[toml]",
     {%- endif %}
+    {%- if cookiecutter.version_manager == "setuptools_scm"}
+    "setuptools_scm[toml]>=6.2",
+    {%- endif %}
 ]
 build-backend = "setuptools.build_meta"
 
@@ -107,6 +110,9 @@ parentdir_prefix = "{{ cookiecutter.project_slug }}-"
 [tool.autopub]
 git-username = {{ cookiecutter.github_username }}
 git-email = {{ cookiecutter.email }}
+{% elif cookiecutter.version_manager == "setuptools_scm" -%}
+[tool.setuptools_scm]
+write_to = "src/{{ cookiecutter.project_slug }}/_version.py"
 {%- endif %}
 
 
