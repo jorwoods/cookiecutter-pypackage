@@ -58,16 +58,13 @@ Cookiecutter 1.4.0 or higher)::
 
 Generate a Python package project::
 
-    cookiecutter https://github.com/audreyfeldroy/cookiecutter-pypackage.git
+    cookiecutter     cookiecutter https://github.com/jorwoods/cookiecutter-pypackage.git
 
 Then:
 
 * Create a repo and put it there.
-* Add the repo to your Travis-CI_ account.
 * Install the dev requirements into a virtualenv. (``pip install -r requirements_dev.txt``)
 * Register_ your project with PyPI.
-* Run the Travis CLI command ``travis encrypt --add deploy.password`` to encrypt your PyPI password in Travis config
-  and activate automated deployment on PyPI when you push a new tag to master branch.
 * Add the repo to your `Read the Docs`_ account + turn on the Read the Docs service hook.
 * Release your package by pushing a new tag to master.
 * Add a ``requirements.txt`` file that specifies the packages you will need for
