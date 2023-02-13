@@ -9,7 +9,6 @@
 
 [project]
 name = "{{ cookiecutter.project_slug }}"
-url = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
 authors = [
     {name="{{ cookiecutter.full_name.replace('\"', '\\\"') }}", email="{{ cookiecutter.email }}"}
 ]
